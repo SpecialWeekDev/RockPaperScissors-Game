@@ -1,3 +1,4 @@
+import leaderboard
 import random
 
 OPTIONS = ['rock', 'paper', 'scissors']
@@ -25,13 +26,17 @@ def check_winner(player_choice, computer_choice):
     
 def play_game():
     print("Welcome to Rock, Paper, Scissors!")
+    print("Best of 5 rounds. Let's play!")
 
-    player_choice = get_user_choice()
-    computer_choice = get_computer_choice()
+    while leaderboard.get_score()["wins"] < 3 and leaderboard.get_score()["losses"] < 3:
+        player_choice = get_user_choice()
+        computer_choice = get_computer_choice()
 
-    print(f"You chose: {player_choice}")
-    print(f"Computer chose: {computer_choice}")
+        print(f"You chose: {player_choice}")
+        print(f"Computer chose: {computer_choice}")
 
-    result = check_winner(player_choice, computer_choice)
-    
-    print(result)
+        result = check_winner(player_choice, computer_choice)
+        leaderboard.update_score(result)
+        
+        print(result)
+        print(f"Score: Wins - {leaderboard.get_score()['wins']}, Losses - {leaderboard.get_score()['losses']}, Ties - {leaderboard.get_score()['ties']}")
