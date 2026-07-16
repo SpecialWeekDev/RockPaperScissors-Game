@@ -1,6 +1,11 @@
 from user_input import get_user_choice
+import random
 
 user_choice = get_user_choice()
+
+def get_computer_choice():
+    OPTIONS = ['rock', 'paper', 'scissors']
+    return random.choice(OPTIONS)
 
 def check_winner(player_choice, computer_choice):
     if player_choice == computer_choice:
