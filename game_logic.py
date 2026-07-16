@@ -1,11 +1,19 @@
-from user_input import get_user_choice
 import random
 
-user_choice = get_user_choice()
+OPTIONS = ['rock', 'paper', 'scissors']
+
 
 def get_computer_choice():
-    OPTIONS = ['rock', 'paper', 'scissors']
     return random.choice(OPTIONS)
+
+def get_user_choice():
+    while True:
+        choice = input("Enter your choice (rock, paper, scissors): ").lower()
+
+        if choice in OPTIONS:
+            return choice
+        else:
+            print("Invalid choice. Please try again.")
 
 def check_winner(player_choice, computer_choice):
     if player_choice == computer_choice:
