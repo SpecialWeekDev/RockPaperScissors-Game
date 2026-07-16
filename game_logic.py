@@ -28,7 +28,7 @@ def play_game():
     print("Welcome to Rock, Paper, Scissors!")
     print("Best of 5 rounds. Let's play!")
 
-    while leaderboard.get_score()["wins"] < 3 and leaderboard.get_score()["losses"] < 3:
+    while leaderboard.get_win() < 3 and leaderboard.get_loss() < 3:
         player_choice = get_user_choice()
         computer_choice = get_computer_choice()
 
@@ -39,4 +39,9 @@ def play_game():
         leaderboard.update_score(result)
         
         print(result)
-        print(f"Score: Wins - {leaderboard.get_score()['wins']}, Losses - {leaderboard.get_score()['losses']}, Ties - {leaderboard.get_score()['ties']}")
+        print(f"Score: Wins - {leaderboard.get_win()}, Losses - {leaderboard.get_loss()}, Ties - {leaderboard.get_tie()}")
+
+    if leaderboard.get_win() == 3:
+        print("Congratulations! You won the game!")
+    else:
+        print("Sorry! The computer won the game. Better luck next time!")

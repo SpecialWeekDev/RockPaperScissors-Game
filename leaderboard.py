@@ -12,5 +12,14 @@ def update_score(result):
     else:
         score["ties"] += 1
 
+def get_win():
+    return score["wins"]
+
+def get_loss():
+    return score["losses"]
+
+def get_tie():
+    return score["ties"]
+
 def get_score():
     return score
