@@ -22,3 +22,16 @@ def check_winner(player_choice, computer_choice):
         return "You win!"
     else:
         return "Computer win!"
+    
+def play_game():
+    print("Welcome to Rock, Paper, Scissors!")
+
+    player_choice = get_user_choice()
+    computer_choice = get_computer_choice()
+
+    print(f"You chose: {player_choice}")
+    print(f"Computer chose: {computer_choice}")
+
+    result = check_winner(player_choice, computer_choice)
+    
+    print(result)
